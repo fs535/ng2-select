@@ -40,12 +40,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ng2-select.git"
+    "url": "git+ssh://git@github.com/fs535/ng2-select.git"
   },
   "bugs": {
-    "url": "https://github.com/valor-software/ng2-select/issues"
+    "url": "https://github.com/fs535/ng2-select/issues"
   },
-  "homepage": "https://github.com/valor-software/ng2-select#readme",
+  "homepage": "https://github.com/fs535/ng2-select#readme",
   "peerDependencies": {
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
