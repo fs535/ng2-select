@@ -9,7 +9,10 @@ export class OffClickDirective implements OnInit, OnDestroy {
   @Input('offClick') public offClickHandler: any;
   /* tslint:enable */
   @HostListener('click', ['$event']) public onClick($event: MouseEvent): void {
-    $event.stopPropagation();
+    if ((!document['ng2selected'] || $event.currentTarget == document['ng2selected'])){
+      $event.stopPropagation();
+    }
+    document['ng2selected'] = $event.currentTarget;
   }
 
   public ngOnInit(): any {

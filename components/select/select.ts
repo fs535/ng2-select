@@ -424,9 +424,21 @@ export class SelectComponent implements OnInit {
     }
   }
 
-  public clickedOutside():void {
-    this.inputMode = false;
-    this.optionsOpened = false;
+  public clickedOutside($event:Event):void {
+    var me = this.element['nativeElement'].firstElementChild,
+      meNotInPath = function(){
+        for (var i = 0; i < $event['path'].length;i++){
+          if ($event['path'][i] == me){
+            return false
+          }
+        }
+        return true;
+      };
+
+    if ( (!document['ng2selected'] || me != document['ng2selected']) || (me == document['ng2selected'] && meNotInPath()) ) {
+      this.inputMode = false;
+      this.optionsOpened = false;
+    }
   }
 
   public get firstItemHasChildren():boolean {
