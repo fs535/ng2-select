@@ -424,10 +424,10 @@ export class SelectComponent implements OnInit {
     }
   }
 
-  public clickedOutside($event:Event):void {
+  public clickedOutside($event:any):void {
     var me = this.element['nativeElement'].firstElementChild,
       meNotInPath = function(){
-        for (var i = 0; i < $event['path'].length;i++){
+        for (let i:number = 0; i < $event['path'].length; i++){
           if ($event['path'][i] == me){
             return false
           }
@@ -435,7 +435,9 @@ export class SelectComponent implements OnInit {
         return true;
       };
 
-    if ( (!document['ng2selected'] || me != document['ng2selected']) || (me == document['ng2selected'] && meNotInPath()) ) {
+    let docRef = (<any>document);
+
+    if ( (!docRef.ng2selected || me != docRef.ng2selected) || (me == docRef.ng2selected && meNotInPath()) ) {
       this.inputMode = false;
       this.optionsOpened = false;
     }
