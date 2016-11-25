@@ -412,9 +412,10 @@ export class SelectComponent implements OnInit {
       this.doEvent('removed', item);
     }
     if (this.multiple === false) {
+		let itemToRemove:SelectItem = this.active[0];
       this.active = [];
       this.data.next(this.active);
-      this.doEvent('removed', item);
+      this.doEvent('removed', item ? item : itemToRemove);
     }
   }
 
