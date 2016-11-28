@@ -181,9 +181,10 @@ var SelectComponent = (function () {
             this.doEvent('removed', item);
         }
         if (this.multiple === false) {
+            var itemToRemove = this.active[0];
             this.active = [];
             this.data.next(this.active);
-            this.doEvent('removed', item);
+            this.doEvent('removed', item ? item : itemToRemove);
         }
     };
     SelectComponent.prototype.doEvent = function (type, value) {
